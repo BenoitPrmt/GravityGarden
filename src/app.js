@@ -1,12 +1,32 @@
-const express = require('express')
-const PATH = require('path')
-const app = express()
-const port = 3000
+class Example extends Phaser.Scene
+{
+    constructor ()
+    {
+        super();
+    }
 
-app.get('/', (req, res) => {
-    res.sendFile(PATH.join(__dirname, '/index.html'));
-})
+    preload ()
+    {
+        this.add.text(0, 0, 'Hello World');
+    }
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+    create ()
+    {
+    }
+}
+
+
+const config = {
+    type: Phaser.AUTO,
+    width: 800,
+    height: 600,
+    physics: {
+        default: 'arcade',
+        arcade: {
+            gravity: { y: 200 }
+        }
+    },
+    scene: Example
+};
+
+const game = new Phaser.Game(config);
