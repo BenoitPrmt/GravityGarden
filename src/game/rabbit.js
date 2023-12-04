@@ -12,7 +12,9 @@ class Rabbit {
         this.rabbit.setBounce(0.2);
         this.rabbit.setGravityY(100);
 
-        let image = this.gameloop.add.image(400, 300, 'rabbit');
+        // let image = this.gameloop.add.image(400, 300, 'rabbit');
+
+        this.gameloop.physics.add.collider(this.rabbit, this.gameloop.ground);
     }
 
     addEnergy(quantity) {
