@@ -8,7 +8,7 @@ function carrotSpawning(game) {
 
   if (randomRottenCarrot === 5) {
     let rottenCarrot = game.physics.add.sprite(
-      Math.random() * 800 + 100,
+      Math.random() * 600 + 100,
       0,
       "rotten_carrot"
     );
