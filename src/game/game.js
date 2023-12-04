@@ -28,15 +28,19 @@ class GravityGarden extends Phaser.Scene {
       this.rabbit.moveRight();
     }
 
-        if (this.cursors.up.isDown || this.cursors.space.isDown)
-        {
-            this.rabbit.moveUp();
-        }
-        this.rabbit.updateEnergyText();
+    if (this.cursors.up.isDown || this.cursors.space.isDown)
+    {
+        this.rabbit.moveUp();
+    } else if (this.cursors.down.isDown) {
+        this.rabbit.moveStop();
+    }
+
     
-        if (this.rabbit.energy <= 0) {
-            this.scene.restart();
-        }
+    this.rabbit.updateEnergyText();
+
+    if (this.rabbit.energy <= 0) {
+        this.scene.restart();
+    }
 
     }
 }
