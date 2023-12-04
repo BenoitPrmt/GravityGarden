@@ -1,19 +1,6 @@
-class GravityGarden extends Phaser.Scene
-{
-    constructor ()
-    {
-        super();
-    }
+Ground()
 
-    preload ()
-    {
-        this.add.text(0, 0, 'Hello World');
-    }
 
-    create ()
-    {
-    }
-}
 
 
 const config = {
