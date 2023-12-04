@@ -3,19 +3,16 @@
 class Rabbit {
     constructor(gameloop) {
         this.gameloop = gameloop;
-        this.rabbit = this.gameloop.physics.add.image(400, 300, 'block');
+        this.rabbit = this.gameloop.physics.add.image(400, 300, 'rabbit');
         this.energy = 100;
     }
 
-    preload() {
-        this.gameloop.load.spritesheet('rabbit', '/assets/rabbit.png', { frameWidth: 32, frameHeight: 32 });
-    }
-
     create() {
-        this.rabbit = this.gameloop.physics.add.sprite(100, 450, 'rabbit');
         this.rabbit.setCollideWorldBounds(true);
         this.rabbit.setBounce(0.2);
         this.rabbit.setGravityY(600);
+
+        let image = this.gameloop.add.image(400, 300, 'rabbit');
 
     }
 

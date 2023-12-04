@@ -6,10 +6,13 @@ class GravityGarden extends Phaser.Scene {
   preload() {
     preloadCarrots(this);
     preloadWorld(this);
+    
+    this.load.image('rabbit', '/assets/rabbit.png');
   }
 
     create ()
     {  
+
         createWorld(this);
         this.rabbit = new Rabbit(this);
         this.cursors = this.input.keyboard.createCursorKeys();
