@@ -1,5 +1,6 @@
 // gestion du terrain
-function Ground() {
-    console.log('aaa');
+function print_hello(gameloop) {
+
+    gameloop.add.text(0, 0, 'Hello World');
     
 }

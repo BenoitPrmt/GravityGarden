@@ -7,7 +7,7 @@ class GravityGarden extends Phaser.Scene
 
     preload ()
     {
-        this.add.text(0, 0, 'Hello World');
+        print_hello(this);
     }
 
     create ()
