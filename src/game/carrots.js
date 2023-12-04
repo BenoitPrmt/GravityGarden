@@ -14,6 +14,8 @@ function carrotSpawning(game) {
     );
     rottenCarrot.setScale(0.5, 0.5);
     rottenCarrot.setGravityY(500);
+
+    return rottenCarrot;
   } else {
     let carrot = game.physics.add.sprite(
       Math.random() * 600 + 100,
@@ -22,6 +24,8 @@ function carrotSpawning(game) {
     );
     carrot.setScale(0.5, 0.5);
     carrot.setGravityY(500);
+
+    return carrot;
   }
 }
 function carrotDespawing(game) {}
