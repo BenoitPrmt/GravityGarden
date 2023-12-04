@@ -9,7 +9,7 @@ body {
     overflow: hidden;
     background-color: rgba(245, 245, 220, 0.764);
 }
-
+/* The canvas that was made with Phaser*/
 canvas {
     display: block;
     padding-top: 5% ;
