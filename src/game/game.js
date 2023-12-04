@@ -3,12 +3,11 @@ class GravityGarden extends Phaser.Scene {
     super();
   }
 
-  preload() {
-    print_hello(this);
-  }
+  preload() {}
 
   create() {
     carrotSpawning(this);
+    createWorld(this);
   }
 
   update() {}
