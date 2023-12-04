@@ -13,4 +13,8 @@ class GravityGarden extends Phaser.Scene
     create ()
     {
     }
+
+    update () {
+        
+    }
 }
