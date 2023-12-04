@@ -22,20 +22,20 @@ class Rabbit {
     }
 
     moveLeft() {
-        this.rabbit.setVelocityX(-260);
-        this.removeEnergy(1);
+        this.rabbit.setVelocityX(-300);
+        this.removeEnergy(0.5);
         this.rabbit.flipX = true;
     }
 
     moveRight() {
-        this.rabbit.setVelocityX(260);
-        this.removeEnergy(1);
+        this.rabbit.setVelocityX(300);
+        this.removeEnergy(0.5);
         this.rabbit.flipX = false;
     }
 
     moveUp() {
         this.rabbit.setVelocityY(-150);
-        this.removeEnergy(1);
+        this.removeEnergy(0.5);
     }
 
     moveStop() {
