@@ -1,4 +1,4 @@
-class Example extends Phaser.Scene
+class GravityGarden extends Phaser.Scene
 {
     constructor ()
     {
@@ -26,7 +26,7 @@ const config = {
             gravity: { y: 200 }
         }
     },
-    scene: Example
+    scene: GravityGarden
 };
 
 const game = new Phaser.Game(config);
