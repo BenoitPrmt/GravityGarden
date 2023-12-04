@@ -17,5 +17,10 @@ function createWorld(gameloop) {
     ground.create(64+512, 536, 'tiles', '2');
     ground.create(64+640, 536, 'tiles', '2');
     ground.create(64+768, 536, 'tiles', '2');
+
+    ground.refresh();
     
+    // gameloop.physics.world.setBounds(0, -400, 800, 1000);
+    
+    return ground;
 }
