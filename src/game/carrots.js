@@ -1,7 +1,7 @@
 // gestion des carottes
 function preloadCarrots(game) {
-  game.load.image("carrot", "/assets/carrot.png");
-  game.load.image("rotten_carrot", "/assets/rotten-carrot.png");
+  game.load.spritesheet("carrot", "/assets/carrot.png",{ frameWidth: 203, frameHeight: 319 });
+  game.load.spritesheet("rotten_carrot", "/assets/rotten-carrot.png",{ frameWidth: 203, frameHeight: 319 });
 }
 function carrotSpawning(game, rabbit) {
   let randomRottenCarrot = Math.floor(Math.random() * 10);
@@ -11,9 +11,11 @@ function carrotSpawning(game, rabbit) {
       Math.random() * 600 + 100,
       0,
       "rotten_carrot"
-    );
+    ).setBounce(0.2).setCollideWorldBounds(true);
+
     rottenCarrot.setScale(0.5, 0.5);
     rottenCarrot.setGravityY(500);
+    game.physics.add.collider(rottenCarrot, ground);
 
     return rottenCarrot;
   } else {
@@ -21,9 +23,11 @@ function carrotSpawning(game, rabbit) {
       Math.random() * 600 + 100,
       0,
       "carrot"
-    );
+    ).setBounce(0.2).setCollideWorldBounds(true);
+
     carrot.setScale(0.5, 0.5);
     carrot.setGravityY(500);
+    game.physics.add.collider(carrot, ground);
 
     return carrot;
   }
