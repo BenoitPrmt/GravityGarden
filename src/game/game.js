@@ -7,14 +7,12 @@ class GravityGarden extends Phaser.Scene {
     preloadCarrots(this);
     preloadWorld(this);
     
-    this.load.image('rabbit', '/assets/rabbit.png');
+    this.load.spritesheet('rabbit', '/assets/rabbit.png', { frameWidth: 100, frameHeight: 141 });
   }
 
     create ()
     {  
-
         this.ground = createWorld(this);
-        console.log(this.ground);
         this.rabbit = new Rabbit(this);
         this.cursors = this.input.keyboard.createCursorKeys();
         
@@ -22,8 +20,6 @@ class GravityGarden extends Phaser.Scene {
             let carrot = carrotSpawning(this);
             this.physics.add.collider(carrot, this.rabbit);
         }, 2000);
-
-        // this.physics.add.collider(this.rabbit.rabbit, this.ground);
 
         this.energy_text = this.add.text(0, 10, this.rabbit.energy, { fontSize: '32px', fill: '#fff' });
     }
