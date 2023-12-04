@@ -13,7 +13,7 @@ function carrotSpawning(game, rabbit, ground) {
     ).setBounce(0.2).setCollideWorldBounds(true);
 
     rottenCarrot.setScale(0.5, 0.5);
-    rottenCarrot.setGravityY(500);
+    rottenCarrot.setGravityY(500); //change it to send to a function
 
     game.physics.add.collider(rottenCarrot, rabbit.rabbit, function() {
       rabbit.energy /= 2;
@@ -48,3 +48,4 @@ function carrotSpawning(game, rabbit, ground) {
     return carrot;
   }
 }
+//function for the gravity based on the level of the player

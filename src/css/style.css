@@ -2,4 +2,15 @@
     font-family: 'Games', sans-serif;
     display: flex;
     justify-content: center;
+    font-size: 2em;
+}
+body {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    padding-top: 75px;
+    margin: auto;
 }
