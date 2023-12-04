@@ -10,10 +10,10 @@ class GravityGarden extends Phaser.Scene {
 
     create ()
     {  
+        createWorld(this);
         this.rabbit = new Rabbit(this);
         this.cursors = this.input.keyboard.createCursorKeys();
         carrotSpawning(this);
-        createWorld(this);
 
         this.energy_text = this.add.text(0, 10, this.rabbit.energy, { fontSize: '32px', fill: '#fff' });
     }
