@@ -1,20 +1,15 @@
-class GravityGarden extends Phaser.Scene
-{
-    constructor ()
-    {
-        super();
-    }
+class GravityGarden extends Phaser.Scene {
+  constructor() {
+    super();
+  }
 
-    preload ()
-    {
-        print_hello(this);
-    }
+  preload() {
+    print_hello(this);
+  }
 
-    create ()
-    {
-    }
+  create() {
+    carrotSpawning(this);
+  }
 
-    update () {
-        
-    }
+  update() {}
 }
