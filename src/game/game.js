@@ -3,10 +3,10 @@ class GravityGarden extends Phaser.Scene {
     super();
   }
 
-    preload ()
-    {
-
-    }
+  preload() {
+    preloadCarrots(this);
+    preloadWorld(this);
+  }
 
     create ()
     {  
@@ -18,17 +18,12 @@ class GravityGarden extends Phaser.Scene {
         this.energy_text = this.add.text(0, 10, this.rabbit.energy, { fontSize: '32px', fill: '#fff' });
     }
 
-    update ()
-    {
-
-        if (this.cursors.left.isDown)
-        {
-            this.rabbit.moveLeft();
-        }
-        else if (this.cursors.right.isDown)
-        {
-            this.rabbit.moveRight();
-        }
+  update() {
+    if (this.cursors.left.isDown) {
+      this.rabbit.moveLeft();
+    } else if (this.cursors.right.isDown) {
+      this.rabbit.moveRight();
+    }
 
         if (this.cursors.up.isDown || this.cursors.space.isDown)
         {
