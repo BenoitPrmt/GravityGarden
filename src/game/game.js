@@ -14,6 +14,8 @@ class GravityGarden extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
         carrotSpawning(this);
         createWorld(this);
+
+        this.energy_text = this.add.text(0, 10, this.rabbit.energy, { fontSize: '32px', fill: '#fff' });
     }
 
     update ()
@@ -31,6 +33,11 @@ class GravityGarden extends Phaser.Scene {
         if (this.cursors.up.isDown || this.cursors.space.isDown)
         {
             this.rabbit.moveUp();
+        }
+        this.rabbit.updateEnergyText();
+    
+        if (this.rabbit.energy <= 0) {
+            this.scene.restart();
         }
 
     }

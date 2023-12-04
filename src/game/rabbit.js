@@ -4,10 +4,11 @@ class Rabbit {
     constructor(gameloop) {
         this.gameloop = gameloop;
         this.rabbit = this.gameloop.physics.add.image(400, 300, 'block');
+        this.energy = 100;
     }
 
     preload() {
-        this.gameloop.load.spritesheet('rabbit', '../../assets/rabbit.png', { frameWidth: 32, frameHeight: 32 });
+        this.gameloop.load.spritesheet('rabbit', '/assets/rabbit.png', { frameWidth: 32, frameHeight: 32 });
     }
 
     create() {
@@ -15,6 +16,7 @@ class Rabbit {
         this.rabbit.setCollideWorldBounds(true);
         this.rabbit.setBounce(0.2);
         this.rabbit.setGravityY(600);
+
     }
 
     update() {
@@ -40,19 +42,31 @@ class Rabbit {
         }
     }
 
+    addEnergy(quantity) {
+        this.energy += quantity;
+    }
+
+    removeEnergy(quantity) {
+        this.energy -= quantity;
+    }
+
+    updateEnergyText() {
+        this.gameloop.energy_text.setText(this.energy);
+    }
+
     moveLeft() {
         this.rabbit.setVelocityX(-160);
-
+        this.removeEnergy(1);
     }
 
     moveRight() {
         this.rabbit.setVelocityX(160);
-
+        this.removeEnergy(1);
     }
 
     moveUp() {
         this.rabbit.setVelocityY(-330);
-
+        this.removeEnergy(1);
     }
 
     
