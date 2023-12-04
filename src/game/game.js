@@ -17,7 +17,7 @@ class GravityGarden extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
         
         setInterval(() => {
-            let carrot = carrotSpawning(this);
+            let carrot = carrotSpawning(this, this.rabbit);
             this.physics.add.collider(carrot, this.rabbit);
         }, 2000);
 

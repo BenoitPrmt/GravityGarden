@@ -3,7 +3,7 @@ function preloadCarrots(game) {
   game.load.image("carrot", "/assets/carrot.png");
   game.load.image("rotten_carrot", "/assets/rotten-carrot.png");
 }
-function carrotSpawning(game) {
+function carrotSpawning(game, rabbit) {
   let randomRottenCarrot = Math.floor(Math.random() * 10);
 
   if (randomRottenCarrot === 5) {
