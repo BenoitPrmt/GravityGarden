@@ -21,7 +21,8 @@ class GravityGarden extends Phaser.Scene {
             this.physics.add.collider(carrot, this.rabbit);
         }, 2000);
 
-        this.energy_text = this.add.text(0, 10, this.rabbit.energy, { fontSize: '32px', fill: '#fff' });
+        this.add.text(0, 0, 'Energy: ', { fontSize: '32px', fill: '#000' })
+        this.energy_text = this.add.text(0, 40, this.rabbit.energy, { fontSize: '32px', fill: '#000' });
     }
 
   update() {
