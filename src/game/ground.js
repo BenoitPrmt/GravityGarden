@@ -1,6 +1,7 @@
 // gestion du terrain
-function print_hello(gameloop) {
+function createWorld(gameloop) {
 
-    gameloop.add.text(0, 0, 'Hello World');
+    gameloop.platforms = gameloop.physics.add.staticGroup();
+    gameloop.platforms.create(400, 568, 'ground').setScale(2).refreshBody();
     
 }
