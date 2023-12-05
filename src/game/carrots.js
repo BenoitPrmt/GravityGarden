@@ -13,7 +13,7 @@ function carrotSpawning(game, rabbit, ground, eating, belch) {
     ).setBounce(0.2).setCollideWorldBounds(true);
 
     rottenCarrot.setScale(0.5, 0.5);
-    rottenCarrot.setGravityY(500); //change it to send to a function
+    carrotGravity(rottenCarrot, rabbit.score); //change it to send to a function
 
     game.physics.add.collider(rottenCarrot, rabbit.rabbit, function() {
       belch.play();
@@ -36,7 +36,7 @@ function carrotSpawning(game, rabbit, ground, eating, belch) {
     ).setBounce(0.2).setCollideWorldBounds(true);
 
     carrot.setScale(0.5, 0.5);
-    carrot.setGravityY(500);
+    carrotGravity(carrot, rabbit.score)
 
     game.physics.add.collider(carrot, rabbit.rabbit, function() {
       rabbit.addEnergy(10);
@@ -52,5 +52,12 @@ function carrotSpawning(game, rabbit, ground, eating, belch) {
 
     return carrot;
   }
+}
+function carrotGravity(carrot, score) {
+  if (score === 0)
+  {
+  carrot.setGravityY(400)
+  }
+  carrot.setGravityY( score * 5)
 }
 //function for the gravity based on the level of the player
