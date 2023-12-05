@@ -18,6 +18,7 @@ class GravityGarden extends Phaser.Scene {
         this.eating= this.sound.add('eating');
         this.belch= this.sound.add('belch');
         this.ambient= this.sound.add('ambient');
+        this.ambient.loop = true;
         this.ambient.play();
         this.jump = this.sound.add('jump');
         this.ground = createWorld(this);
