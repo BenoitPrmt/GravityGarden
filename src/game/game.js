@@ -23,17 +23,16 @@ class GravityGarden extends Phaser.Scene {
         this.ground = createWorld(this);
         this.rabbit = new Rabbit(this);
         this.cursors = this.input.keyboard.createCursorKeys();
-        this.score = 0;
         
         setInterval(() => {
-            carrotSpawning(this, this.rabbit, this.ground, this.eating, this.belch);
+            carrotSpawning(this, this.rabbit, this.ground, this.eating, this.belch, this.score);
         }, 2000);
 
         this.add.text(5, 5, 'Energy : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
         this.energy_text = this.add.text(5, 40, this.rabbit.energy, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
 
         this.add.text(5, 80, 'Score : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
-        this.score_text = this.add.text(5, 105, this.score, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
+        this.score_text = this.add.text(5, 105, this.rabbit.score, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
     }
 
   update() {
@@ -53,7 +52,7 @@ class GravityGarden extends Phaser.Scene {
 
     
     this.rabbit.updateEnergyText();
-    this.score_text.setText(this.score);
+    this.score_text.setText(this.rabbit.score);
 
     if (this.rabbit.energy <= 0) {
         this.scene.restart();
