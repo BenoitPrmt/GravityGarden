@@ -27,7 +27,6 @@ class Rabbit {
     }
 
     moveLeft() {
-
         if (this.rabbit.x < 10) {
             this.rabbit.setVelocityX(0);
             return;

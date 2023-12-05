@@ -12,8 +12,6 @@ class Preloader extends Phaser.Scene
       preloadCarrots(this);
       preloadWorld(this);
       this.load.spritesheet('rabbit', 'src/assets/rabbit/frame-1.png', { frameWidth: 100, frameHeight: 141 });
-      this.load.spritesheet('rabbit2', 'src/assets/rabbit/frame-2.png', { frameWidth: 100, frameHeight: 141 });
-
       this.load.audio('jump', 'src/assets/sounds/jump.wav');
       this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
       this.load.audio('eating', 'src/assets/sounds/eating.m4a');
