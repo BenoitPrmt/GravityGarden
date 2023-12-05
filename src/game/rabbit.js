@@ -27,19 +27,29 @@ class Rabbit {
     }
 
     moveLeft() {
-        this.rabbit.setVelocityX(-300);
-        this.removeEnergy(0.5);
-        this.rabbit.flipX = true;
+        if (this.rabbit.x < 10) {
+            this.rabbit.setVelocityX(0);
+            return;
+        } else {
+            this.rabbit.setVelocityX(-800);
+            this.removeEnergy(0.5);
+            this.rabbit.flipX = true;
+        }
     }
 
     moveRight() {
-        this.rabbit.setVelocityX(300);
-        this.removeEnergy(0.5);
-        this.rabbit.flipX = false;
+        if (this.rabbit.x > 790) {
+            this.rabbit.setVelocityX(0);
+            return;
+        } else {
+            this.rabbit.setVelocityX(800);
+            this.removeEnergy(0.5);
+            this.rabbit.flipX = false;
+        }
     }
 
     moveUp(jump) {
-        this.rabbit.setVelocityY(-250);
+        this.rabbit.setVelocityY(-300);
         this.removeEnergy(1);
         jump.play();        
     }

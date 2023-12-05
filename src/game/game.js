@@ -25,9 +25,9 @@ class GravityGarden extends Phaser.Scene {
         this.rabbit = new Rabbit(this);
         this.cursors = this.input.keyboard.createCursorKeys();
         
-        setInterval(() => {
+        this.carrotInterval = setInterval(() => {
             carrotSpawning(this, this.rabbit, this.ground, this.eating, this.belch, this.score);
-        }, 2000);
+        }, 1000);
 
         this.add.text(5, 5, 'Energy : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
         this.energy_text = this.add.text(5, 40, this.rabbit.energy, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
@@ -58,6 +58,7 @@ class GravityGarden extends Phaser.Scene {
     if (this.rabbit.energy <= 0 || this.rabbit.score < 0) {
         this.scene.restart();
         this.sound.stopAll();
+        clearInterval(this.carrotInterval);
     }
 
     }
