@@ -1,12 +1,12 @@
 // gestion du terrain
 function preloadWorld(gameloop) {
     gameloop.load.atlas('tiles', '/assets/platformer.png', '/assets/platformer.json');
-    gameloop.load.image('bg', '/assets/background.png');
+    gameloop.load.image('bg', '/assets/gravitygarden.png');
 }
 
 function createWorld(gameloop) {
     
-    gameloop.add.image(400, 300, 'bg');
+    gameloop.add.image(370, 500, 'bg');
 
     const ground = gameloop.physics.add.staticGroup();
     
