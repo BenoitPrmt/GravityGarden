@@ -1,11 +1,12 @@
 function preloadCarrots(game) {
   game.load.spritesheet("carrot", "src/assets/carrot.png",{ frameWidth: 203, frameHeight: 319 });
   game.load.spritesheet("rotten_carrot", "src/assets/rotten-carrot.png",{ frameWidth: 203, frameHeight: 319 });
+  game.load.spritesheet("golden_carrot", "src/assets/golden-carrot.png", { frameWidth: 203, frameHeight: 319 });
 }
 function carrotSpawning(game, rabbit, ground, eating, belch) {
-  let randomRottenCarrot = Math.floor(Math.random() * 10);
+  let randomRottenCarrot = Math.floor(Math.random() * 20);
 
-  if (randomRottenCarrot > 8 ) {
+  if (randomRottenCarrot > 16 ) {
     let rottenCarrot = game.physics.add.sprite(
       Math.random() * 600 + 100,
       0,
@@ -27,6 +28,28 @@ function carrotSpawning(game, rabbit, ground, eating, belch) {
     });
 
     return rottenCarrot;
+  } else if (randomRottenCarrot == 15) {
+    let goldenCarrot = game.physics.add.sprite(
+      Math.random() * 600 + 100,
+      0,
+      "golden_carrot"
+    ).setBounce(0.2).setCollideWorldBounds(true);
+
+    goldenCarrot.setScale(0.5, 0.5);
+    carrotGravity(goldenCarrot, rabbit.score)
+
+    game.physics.add.collider(goldenCarrot, rabbit.rabbit, function() {
+      rabbit.addEnergy(50);
+      rabbit.score += 50;
+      eating.play();
+      goldenCarrot.destroy();
+    });
+
+    game.physics.add.collider(goldenCarrot, ground, function() {
+      goldenCarrot.destroy();
+    });
+
+    return goldenCarrot;
 
   } else {
     let carrot = game.physics.add.sprite(
