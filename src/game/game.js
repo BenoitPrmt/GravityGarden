@@ -55,7 +55,7 @@ class GravityGarden extends Phaser.Scene {
     this.rabbit.updateEnergyText();
     this.score_text.setText(this.rabbit.score);
 
-    if (this.rabbit.energy <= 0) {
+    if (this.rabbit.energy <= 0 || this.rabbit.score < 0) {
         this.scene.restart();
         this.sound.stopAll();
     }

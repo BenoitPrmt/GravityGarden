@@ -18,6 +18,7 @@ function carrotSpawning(game, rabbit, ground, eating, belch) {
     game.physics.add.collider(rottenCarrot, rabbit.rabbit, function() {
       belch.play();
       rabbit.energy /= Math.floor(2);
+      rabbit.score -= 10;
       rottenCarrot.destroy();
     });
 
@@ -45,6 +46,7 @@ function carrotSpawning(game, rabbit, ground, eating, belch) {
     });
 
     game.physics.add.collider(carrot, ground, function() {
+      rabbit.score -= 10;
       carrot.destroy();
     });
 
