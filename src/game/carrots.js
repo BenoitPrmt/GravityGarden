@@ -2,7 +2,7 @@ function preloadCarrots(game) {
   game.load.spritesheet("carrot", "src/assets/carrot.png",{ frameWidth: 203, frameHeight: 319 });
   game.load.spritesheet("rotten_carrot", "src/assets/rotten-carrot.png",{ frameWidth: 203, frameHeight: 319 });
 }
-function carrotSpawning(game, rabbit, ground) {
+function carrotSpawning(game, rabbit, ground, eating, belch) {
   let randomRottenCarrot = Math.floor(Math.random() * 10);
 
   if (randomRottenCarrot > 8 ) {
@@ -16,6 +16,7 @@ function carrotSpawning(game, rabbit, ground) {
     rottenCarrot.setGravityY(500); //change it to send to a function
 
     game.physics.add.collider(rottenCarrot, rabbit.rabbit, function() {
+      belch.play();
       rabbit.energy /= 2;
       rottenCarrot.destroy();
     });
@@ -38,6 +39,7 @@ function carrotSpawning(game, rabbit, ground) {
 
     game.physics.add.collider(carrot, rabbit.rabbit, function() {
       rabbit.addEnergy(5);
+      eating.play();
       carrot.destroy();
     });
 

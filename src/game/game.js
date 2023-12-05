@@ -9,10 +9,14 @@ class GravityGarden extends Phaser.Scene {
     this.load.spritesheet('rabbit', 'src/assets/rabbit.png', { frameWidth: 100, frameHeight: 141 });
     this.load.audio('jump', 'src/assets/sounds/jump.wav');
     this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
+    this.load.audio('eating', 'src/assets/sounds/eating.m4a');
+    this.load.audio('belch', 'src/assets/sounds/belch.mp3');
   }
 
     create ()
-    {   
+    {
+        this.eating= this.sound.add('eating');
+        this.belch= this.sound.add('belch');
         this.ambient= this.sound.add('ambient');
         this.ambient.play();
         this.jump = this.sound.add('jump');
@@ -22,7 +26,7 @@ class GravityGarden extends Phaser.Scene {
         this.score = 0;
         
         setInterval(() => {
-            carrotSpawning(this, this.rabbit, this.ground);
+            carrotSpawning(this, this.rabbit, this.ground, this.eating, this.belch);
         }, 2000);
 
         this.add.text(5, 5, 'Energy : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
