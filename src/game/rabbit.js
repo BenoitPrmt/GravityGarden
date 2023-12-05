@@ -5,7 +5,6 @@ class Rabbit {
         this.gameloop = gameloop;
         this.rabbit = this.gameloop.physics.add.sprite(400, 800, 'rabbit').setCollideWorldBounds(true).setBounce(0.2).setGravityY(100);
         this.energy = 100;
-
         this.gameloop.physics.add.collider(this.rabbit, this.gameloop.ground);
     }
 
@@ -33,9 +32,10 @@ class Rabbit {
         this.rabbit.flipX = false;
     }
 
-    moveUp() {
+    moveUp(jump) {
         this.rabbit.setVelocityY(-150);
         this.removeEnergy(0.5);
+        jump.play();        
     }
 
     moveStop() {

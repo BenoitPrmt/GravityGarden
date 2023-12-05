@@ -6,12 +6,16 @@ class GravityGarden extends Phaser.Scene {
   preload() {
     preloadCarrots(this);
     preloadWorld(this);
-    
     this.load.spritesheet('rabbit', '/assets/rabbit.png', { frameWidth: 100, frameHeight: 141 });
+    this.load.audio('jump', '../assets/sounds/jump.wav');
+    this.load.audio('ambient', '../assets/sounds/ambient.mp3');
   }
 
     create ()
-    {  
+    {   
+        this.ambient= this.sound.add('ambient');
+        this.ambient.play();
+        this.jump = this.sound.add('jump');
         this.ground = createWorld(this);
         this.rabbit = new Rabbit(this);
         this.cursors = this.input.keyboard.createCursorKeys();
@@ -35,7 +39,7 @@ class GravityGarden extends Phaser.Scene {
 
     if (this.cursors.up.isDown || this.cursors.space.isDown)
     {
-        this.rabbit.moveUp();
+        this.rabbit.moveUp(this.jump);
     } else if (this.cursors.down.isDown) {
         this.rabbit.moveStop();
     }
@@ -45,6 +49,7 @@ class GravityGarden extends Phaser.Scene {
 
     if (this.rabbit.energy <= 0) {
         this.scene.restart();
+        this.sound.stopAll();
     }
 
     }
