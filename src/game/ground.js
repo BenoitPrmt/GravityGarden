@@ -1,8 +1,9 @@
 // gestion du terrain
 function preloadWorld(gameloop) {
-    // gameloop.load.atlas('tiles', '/assets/platformer.png', '/assets/platformer.json');
+    // gameloop.load.atlas('tiles', 'src/assets/platformer.png', 'src/assets/platformer.json');
     gameloop.load.image('bg', 'src/assets/gravitygarden.png');
-    gameloop.load.atlas('ground', 'src/assets/ground.png', 'src/assets/ground.json');
+    gameloop.load.image('ground', 'src/assets/ground.png');
+    gameloop.load.image('bushes', 'src/assets/bushes.png');
 }
 
 function createWorld(gameloop) {
@@ -19,7 +20,9 @@ function createWorld(gameloop) {
     // ground.create(64+640, 936, 'tiles', '2');
     // ground.create(64+768, 936, 'tiles', '2');
 
-    ground.create(400, 955, 'ground', '1');
+    ground.create(400, 957, 'ground');
+
+    gameloop.add.image(400, 922, 'bushes');
 
     // .refreshBody()
 
