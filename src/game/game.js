@@ -24,8 +24,8 @@ class GravityGarden extends Phaser.Scene {
             carrotSpawning(this, this.rabbit, this.ground);
         }, 2000);
 
-        this.add.text(0, 0, 'Energy : ', { fontFamily: 'Games', fontSize: '32px', fill: '#000' });
-        this.energy_text = this.add.text(0, 40, this.rabbit.energy, { fontFamily: 'Games', fontSize: '32px', fill: '#000' });
+        this.add.text(5, 5, 'Energy : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
+        this.energy_text = this.add.text(5, 40, this.rabbit.energy, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
 
     }
 
