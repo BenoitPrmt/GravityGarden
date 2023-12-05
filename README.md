@@ -61,7 +61,7 @@ $ cd GravityGarden
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
 
-Made with ❤️ by <a href="https://github.com/BenoitPrmt" target="_blank">Benoît</a>, <a href="https://github.com/Raxuis" target="_blank">Raxuis</a>, <a href="https://github.com/Guillaume-SR" target="_blank">Guillaume</a>
+Made with ❤️ by <a href="https://github.com/BenoitPrmt" target="_blank">Benoît</a>, <a href="https://github.com/Raxuis" target="_blank">Raxuis</a>, <a href="https://github.com/GuillaumeSR" target="_blank">Guillaume</a>
 
 &#xa0;
 
