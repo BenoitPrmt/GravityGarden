@@ -23,7 +23,7 @@ class Rabbit {
     }
 
     updateEnergyText() {
-        this.gameloop.energy_text.setText(this.energy);
+        this.gameloop.energy_text.setText(Math.floor(this.energy));
     }
 
     moveLeft() {
