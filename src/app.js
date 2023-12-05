@@ -8,7 +8,7 @@ const config = {
       gravity: { y: 600 },
     },
   },
-  scene: [ MainMenu, GravityGarden, GameOver ]
+  scene: [ Preloader, MainMenu, GravityGarden, GameOver ]
 };
 
 const game = new Phaser.Game(config);

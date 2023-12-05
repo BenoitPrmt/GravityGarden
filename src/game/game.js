@@ -1,15 +1,47 @@
+class Preloader extends Phaser.Scene
+{
+    constructor ()
+    {
+        super({ key: 'preloader' });
+    }
+
+    preload ()
+    {
+      this.load.image('bg', 'src/assets/gravitygarden.png');
+      this.load.image('buttonBG', 'src/assets/playbtn.png');
+      preloadCarrots(this);
+      preloadWorld(this);
+      this.load.spritesheet('rabbit', 'src/assets/rabbit.png', { frameWidth: 100, frameHeight: 141 });
+      this.load.audio('jump', 'src/assets/sounds/jump.wav');
+      this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
+      this.load.audio('eating', 'src/assets/sounds/eating.m4a');
+      this.load.audio('golden_carrot', 'src/assets/sounds/golden-carrot.m4a');
+      this.load.audio('belch', 'src/assets/sounds/belch.mp3');
+      this.load.audio('villager', 'src/assets/sounds/villager.m4a');
+      this.load.audio('gameover', 'src/assets/sounds/gameover.mp3');
+      this.load.image('ayu', 'src/assets/gameover.png');
+    }
+
+    create ()
+    {
+        console.log('%c Preloader ', 'background: green; color: white; display: block;');
+
+        this.scene.start('mainmenu');
+    }
+}
+
+
 class MainMenu extends Phaser.Scene {
   constructor ()
     {
       super({ key: 'mainmenu' });
       window.MENU = this;
     }
-  preload ()
-    {
-      this.load.image('buttonBG', 'src/assets/playbtn.png');
-    }
+
   create ()
     {
+      this.add.image(370, 500, 'bg');
+
       const bg = this.add.image(400, 500, 'buttonBG');
 
       bg.setInteractive();
@@ -27,18 +59,18 @@ class GravityGarden extends Phaser.Scene {
     window.GAME = this;
   }
 
-  preload() {
-    preloadCarrots(this);
-    preloadWorld(this);
-    this.load.spritesheet('rabbit', 'src/assets/rabbit.png', { frameWidth: 100, frameHeight: 141 });
-    this.load.audio('jump', 'src/assets/sounds/jump.wav');
-    this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
-    this.load.audio('eating', 'src/assets/sounds/eating.m4a');
-    this.load.audio('golden_carrot', 'src/assets/sounds/golden-carrot.m4a');
-    this.load.audio('belch', 'src/assets/sounds/belch.mp3');
-    this.load.audio('villager', 'src/assets/sounds/villager.m4a')
-    this.load.audio('gameover', 'src/assets/sounds/gameover.mp3')
-  }
+  // preload() {
+  //   preloadCarrots(this);
+  //   preloadWorld(this);
+  //   this.load.spritesheet('rabbit', 'src/assets/rabbit.png', { frameWidth: 100, frameHeight: 141 });
+  //   this.load.audio('jump', 'src/assets/sounds/jump.wav');
+  //   this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
+  //   this.load.audio('eating', 'src/assets/sounds/eating.m4a');
+  //   this.load.audio('golden_carrot', 'src/assets/sounds/golden-carrot.m4a');
+  //   this.load.audio('belch', 'src/assets/sounds/belch.mp3');
+  //   this.load.audio('villager', 'src/assets/sounds/villager.m4a')
+  //   this.load.audio('gameover', 'src/assets/sounds/gameover.mp3')
+  // }
 
     create ()
     {
@@ -104,13 +136,18 @@ class GameOver extends Phaser.Scene
     window.OVER = this;
   }
 
+  // preload ()
+  // {
+  //   this.load.image('ayu', 'src/assets/gameover.png');
+  // }
+
   create ()
   {
-    console.log('%c GameOver ', 'background: green; color: white; display: block;');
+    this.add.image(370, 500, 'bg');
 
-    this.add.sprite(400, 300, 'ayu');
+    this.add.sprite(400, 500, 'ayu');
 
-    this.add.text(300, 500, 'Game Over - Click to start restart', { font: '16px Courier', fill: '#00ff00' });
+    this.add.text(270, 600, 'Game Over - Click to restart', { font: '16px Courier', fill: '#ffffff' });
 
     this.input.once('pointerup', function (event)
     {
@@ -118,5 +155,10 @@ class GameOver extends Phaser.Scene
       this.scene.start('mainmenu');
 
     }, this);
+  }
+
+  update ()
+  {
+    clearInterval(this.carrotInterval);
   }
 }
