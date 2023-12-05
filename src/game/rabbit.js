@@ -56,7 +56,5 @@ class Rabbit {
 
     moveStop() {
         this.rabbit.setVelocityX(0);
-    }
-
-    
+    }    
 }
