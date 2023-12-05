@@ -1,6 +1,6 @@
 function preloadCarrots(game) {
-  game.load.spritesheet("carrot", "/assets/carrot.png",{ frameWidth: 203, frameHeight: 319 });
-  game.load.spritesheet("rotten_carrot", "/assets/rotten-carrot.png",{ frameWidth: 203, frameHeight: 319 });
+  game.load.spritesheet("carrot", "src/assets/carrot.png",{ frameWidth: 203, frameHeight: 319 });
+  game.load.spritesheet("rotten_carrot", "src/assets/rotten-carrot.png",{ frameWidth: 203, frameHeight: 319 });
 }
 function carrotSpawning(game, rabbit, ground) {
   let randomRottenCarrot = Math.floor(Math.random() * 10);
