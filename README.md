@@ -28,6 +28,11 @@
 
 Your are a rabbit 🐰 and you have to catch carrots. But be careful, rotten carrots will make you lose energy. You can also get energy by eating carrots.
 
+This project was made during a GameJam by CODA in 48h !
+We choose this fictive cover : <br>
+
+![Game cover](src/assets/gamecover.jpg)
+
 ## ✨ Features ##
 
 - Catch carrots
