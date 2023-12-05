@@ -33,11 +33,11 @@ class GravityGarden extends Phaser.Scene {
             carrotSpawning(this, this.rabbit, this.ground, this.eating, this.belch, this.villager);
         }, 1000);
 
-        this.add.text(5, 5, 'Energy : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
-        this.energy_text = this.add.text(5, 40, this.rabbit.energy, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
-
-        this.add.text(5, 80, 'Score : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
-        this.score_text = this.add.text(5, 105, this.rabbit.score, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
+        this.add.text(10, 10, 'Energy : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
+        this.energy_text = this.add.text(10, 45, this.rabbit.energy, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
+        this.add.text(10, 85, 'Score : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
+        this.score_text = this.add.text(10, 110, this.rabbit.score, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
+        this.add.text(525,950,  'GravityGarden ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
     }
 
   update() {
