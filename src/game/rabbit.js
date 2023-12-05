@@ -31,7 +31,7 @@ class Rabbit {
             this.rabbit.setVelocityX(0);
             return;
         } else {
-            this.rabbit.setVelocityX(-800);
+            this.rabbit.setVelocityX(-700);
             this.removeEnergy(0.5);
             this.rabbit.flipX = true;
         }
@@ -42,7 +42,7 @@ class Rabbit {
             this.rabbit.setVelocityX(0);
             return;
         } else {
-            this.rabbit.setVelocityX(800);
+            this.rabbit.setVelocityX(700);
             this.removeEnergy(0.5);
             this.rabbit.flipX = false;
         }

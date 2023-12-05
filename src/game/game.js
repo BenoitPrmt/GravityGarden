@@ -11,7 +11,7 @@ class GravityGarden extends Phaser.Scene {
     this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
     this.load.audio('eating', 'src/assets/sounds/eating.m4a');
     this.load.audio('belch', 'src/assets/sounds/belch.mp3');
-    this.load.audio('villager', 'src/assets/sounds/villager.mp3')
+    this.load.audio('villager', 'src/assets/sounds/villager.m4a')
   }
 
     create ()
