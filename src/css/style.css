@@ -6,12 +6,11 @@
 }
 body {
     margin: 0 auto;
-    overflow: hidden;
     background-color: rgba(245, 245, 220, 0.764);
 }
 /* The canvas that was made with Phaser*/
 canvas {
     display: block;
-    padding-top: 5% ;
+    padding: 5% 0;
     margin: auto;
 }
