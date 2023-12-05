@@ -11,7 +11,9 @@ class Preloader extends Phaser.Scene
       this.load.image('buttonBG', 'src/assets/playbtn.png');
       preloadCarrots(this);
       preloadWorld(this);
-      this.load.spritesheet('rabbit', 'src/assets/rabbit.png', { frameWidth: 100, frameHeight: 141 });
+      this.load.spritesheet('rabbit', 'src/assets/rabbit/frame-1.png', { frameWidth: 100, frameHeight: 141 });
+      this.load.spritesheet('rabbit2', 'src/assets/rabbit/frame-2.png', { frameWidth: 100, frameHeight: 141 });
+
       this.load.audio('jump', 'src/assets/sounds/jump.wav');
       this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
       this.load.audio('eating', 'src/assets/sounds/eating.m4a');
@@ -59,19 +61,6 @@ class GravityGarden extends Phaser.Scene {
     window.GAME = this;
   }
 
-  // preload() {
-  //   preloadCarrots(this);
-  //   preloadWorld(this);
-  //   this.load.spritesheet('rabbit', 'src/assets/rabbit.png', { frameWidth: 100, frameHeight: 141 });
-  //   this.load.audio('jump', 'src/assets/sounds/jump.wav');
-  //   this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
-  //   this.load.audio('eating', 'src/assets/sounds/eating.m4a');
-  //   this.load.audio('golden_carrot', 'src/assets/sounds/golden-carrot.m4a');
-  //   this.load.audio('belch', 'src/assets/sounds/belch.mp3');
-  //   this.load.audio('villager', 'src/assets/sounds/villager.m4a')
-  //   this.load.audio('gameover', 'src/assets/sounds/gameover.mp3')
-  // }
-
     create ()
     {
         this.eating= this.sound.add('eating');
@@ -118,7 +107,6 @@ class GravityGarden extends Phaser.Scene {
     this.score_text.setText(this.rabbit.score);
 
     if (this.rabbit.energy <= 0 || this.rabbit.score < 0) {
-        this.scene.restart();
         this.sound.stopAll();
         this.gameover.play();
         clearInterval(this.carrotInterval);
@@ -136,11 +124,6 @@ class GameOver extends Phaser.Scene
     window.OVER = this;
   }
 
-  // preload ()
-  // {
-  //   this.load.image('ayu', 'src/assets/gameover.png');
-  // }
-
   create ()
   {
     this.add.image(370, 500, 'bg');
@@ -155,10 +138,5 @@ class GameOver extends Phaser.Scene
       this.scene.start('mainmenu');
 
     }, this);
-  }
-
-  update ()
-  {
-    clearInterval(this.carrotInterval);
   }
 }
