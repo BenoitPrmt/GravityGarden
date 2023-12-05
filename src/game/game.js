@@ -11,7 +11,7 @@ class Preloader extends Phaser.Scene
       this.load.image('buttonBG', 'src/assets/playbtn.png');
       preloadCarrots(this);
       preloadWorld(this);
-      this.load.spritesheet('rabbit', 'src/assets/rabbit/frame-1.png', { frameWidth: 100, frameHeight: 141 });
+      this.load.spritesheet('rabbit', 'src/assets/rabbit/rabbit-frame.png', { frameWidth: 100, frameHeight: 141 });
       this.load.audio('jump', 'src/assets/sounds/jump.wav');
       this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
       this.load.audio('eating', 'src/assets/sounds/eating.m4a');
@@ -24,8 +24,6 @@ class Preloader extends Phaser.Scene
 
     create ()
     {
-        console.log('%c Preloader ', 'background: green; color: white; display: block;');
-
         this.scene.start('mainmenu');
     }
 }
@@ -83,6 +81,7 @@ class GravityGarden extends Phaser.Scene {
         this.add.text(10, 85, 'Score : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
         this.score_text = this.add.text(10, 110, this.rabbit.score, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
         this.add.text(525,950,  'GravityGarden ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
+        this.rabbit.create()
     }
 
   update() {

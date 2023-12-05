@@ -8,20 +8,22 @@ class Rabbit {
         this.energy = 100;
         this.score = 0;
         this.gameloop.physics.add.collider(this.rabbit, this.gameloop.ground);
+    }
 
-        // this.anims.create({
-        //     key: 'left',
-        //     frames: this.anims.generateFrameNumbers('rabbit', { start: 0, end: 1 }),
-        //     frameRate: 10,
-        //     repeat: -1
-        // });
+    create () {
+        this.rabbit.anims.create({
+            key: 'left',
+            frames: this.rabbit.anims.generateFrameNumbers('rabbit', { start: 0, end: 1 }),
+            frameRate: 10,
+            repeat: -1
+        });
 
-        // this.anims.create({
-        //     key: 'right',
-        //     frames: this.anims.generateFrameNumbers('rabbit', { start: 2, end: 3 }),
-        //     frameRate: 10,
-        //     repeat: -1
-        // });
+        this.rabbit.anims.create({
+            key: 'right',
+            frames: this.rabbit.anims.generateFrameNumbers('rabbit', { start: 2, end: 3 }),
+            frameRate: 10,
+            repeat: -1
+        });
     }
 
     addEnergy(quantity) {
@@ -41,24 +43,27 @@ class Rabbit {
     }
 
     moveLeft() {
+        this.rabbit.anims.play('left', true);
         if (this.rabbit.x < 10) {
             this.rabbit.setVelocityX(0);
             return;
         } else {
             this.rabbit.setVelocityX(-700);
             this.removeEnergy(0.5);
-            this.rabbit.flipX = true;
+            // this.rabbit.flipX = true;
         }
     }
 
     moveRight() {
+        this.rabbit.anims.play('right', true);
         if (this.rabbit.x > 790) {
             this.rabbit.setVelocityX(0);
             return;
         } else {
             this.rabbit.setVelocityX(700);
             this.removeEnergy(0.5);
-            this.rabbit.flipX = false;
+            // this.rabbit.flipX = false;
+
         }
     }
 
