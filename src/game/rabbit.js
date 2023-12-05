@@ -8,6 +8,20 @@ class Rabbit {
         this.energy = 100;
         this.score = 0;
         this.gameloop.physics.add.collider(this.rabbit, this.gameloop.ground);
+
+        // this.anims.create({
+        //     key: 'left',
+        //     frames: this.anims.generateFrameNumbers('rabbit', { start: 0, end: 1 }),
+        //     frameRate: 10,
+        //     repeat: -1
+        // });
+
+        // this.anims.create({
+        //     key: 'right',
+        //     frames: this.anims.generateFrameNumbers('rabbit', { start: 2, end: 3 }),
+        //     frameRate: 10,
+        //     repeat: -1
+        // });
     }
 
     addEnergy(quantity) {
