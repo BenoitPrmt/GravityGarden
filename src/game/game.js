@@ -40,7 +40,7 @@ class GravityGarden extends Phaser.Scene {
       this.rabbit.moveRight();
     }
 
-    if (this.cursors.up.isDown || this.cursors.space.isDown)
+    if ((this.cursors.up.isDown || this.cursors.space.isDown) && this.rabbit.rabbit.body.touching.down)
     {
         this.rabbit.moveUp(this.jump);
     } else if (this.cursors.down.isDown) {
