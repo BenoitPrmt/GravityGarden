@@ -6,6 +6,7 @@ class Rabbit {
         this.rabbit = this.gameloop.physics.add.sprite(400, 800, 'rabbit').setCollideWorldBounds(true).setBounce(0.2).setGravityY(600);
         this.rabbit.setPushable(false);
         this.energy = 100;
+        this.score = 0;
         this.gameloop.physics.add.collider(this.rabbit, this.gameloop.ground);
     }
 
@@ -15,6 +16,10 @@ class Rabbit {
 
     removeEnergy(quantity) {
         this.energy -= quantity;
+    }
+
+    addScore(quantity) {
+        this.score += quantity;
     }
 
     updateEnergyText() {
