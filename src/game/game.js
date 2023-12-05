@@ -1,6 +1,30 @@
+class MainMenu extends Phaser.Scene {
+  constructor ()
+    {
+      super({ key: 'mainmenu' });
+      window.MENU = this;
+    }
+  preload ()
+    {
+      this.load.image('buttonBG', 'src/assets/playbtn.png');
+    }
+  create ()
+    {
+      const bg = this.add.image(400, 500, 'buttonBG');
+
+      bg.setInteractive();
+
+      bg.once('pointerup', function ()
+      {
+        this.scene.start('game');
+      }, this);
+    }
+}
+
 class GravityGarden extends Phaser.Scene {
   constructor() {
-    super();
+    super({ key: 'game'});
+    window.GAME = this;
   }
 
   preload() {
@@ -10,6 +34,7 @@ class GravityGarden extends Phaser.Scene {
     this.load.audio('jump', 'src/assets/sounds/jump.wav');
     this.load.audio('ambient', 'src/assets/sounds/ambient.mp3');
     this.load.audio('eating', 'src/assets/sounds/eating.m4a');
+    this.load.audio('golden_carrot', 'src/assets/sounds/golden-carrot.m4a');
     this.load.audio('belch', 'src/assets/sounds/belch.mp3');
     this.load.audio('villager', 'src/assets/sounds/villager.m4a')
     this.load.audio('gameover', 'src/assets/sounds/gameover.mp3')
@@ -20,6 +45,7 @@ class GravityGarden extends Phaser.Scene {
         this.eating= this.sound.add('eating');
         this.belch= this.sound.add('belch');
         this.ambient= this.sound.add('ambient');
+        this.golden_carrot= this.sound.add('golden_carrot');
         this.villager= this.sound.add('villager');
         this.gameover= this.sound.add('gameover');
         this.ambient.loop = true;
@@ -30,7 +56,7 @@ class GravityGarden extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
         
         this.carrotInterval = setInterval(() => {
-            carrotSpawning(this, this.rabbit, this.ground, this.eating, this.belch, this.villager);
+            carrotSpawning(this, this.rabbit, this.ground, this.eating, this.belch, this.golden_carrot, this.villager);
         }, 1000);
 
         this.add.text(10, 10, 'Energy : ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
@@ -64,8 +90,33 @@ class GravityGarden extends Phaser.Scene {
         this.sound.stopAll();
         this.gameover.play();
         clearInterval(this.carrotInterval);
-        
+        this.scene.start('gameover');
     }
 
     }
+}
+
+class GameOver extends Phaser.Scene
+{
+  constructor ()
+  {
+    super({ key: 'gameover' });
+    window.OVER = this;
+  }
+
+  create ()
+  {
+    console.log('%c GameOver ', 'background: green; color: white; display: block;');
+
+    this.add.sprite(400, 300, 'ayu');
+
+    this.add.text(300, 500, 'Game Over - Click to start restart', { font: '16px Courier', fill: '#00ff00' });
+
+    this.input.once('pointerup', function (event)
+    {
+
+      this.scene.start('mainmenu');
+
+    }, this);
+  }
 }
