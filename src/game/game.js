@@ -62,6 +62,8 @@ class GravityGarden extends Phaser.Scene {
 
     create ()
     {
+        this.leftButtonPressed = false;
+        this.rightButtonPressed = false;
         this.eating= this.sound.add('eating');
         this.belch= this.sound.add('belch');
         this.ambient= this.sound.add('ambient');
@@ -90,36 +92,36 @@ class GravityGarden extends Phaser.Scene {
         const rightButton = this.add.image(700, 900, 'rightButton').setInteractive().setScale(0.8);
         const jumpButton = this.add.image(400, 900, 'jumpButton').setInteractive().setScale(0.5);
 
-        // Decided to make the use the functions here because got an issue with update()
         leftButton.on('pointerdown', () => {
-            this.rabbit.moveLeft();
+          this.leftButtonPressed = true;
+        });
+
+        leftButton.on('pointerup', () => {
+          this.leftButtonPressed = false;
+          this.rabbit.moveStop();
         });
 
         rightButton.on('pointerdown', () => {
-            this.rabbit.moveRight();
+          this.rightButtonPressed = true;
+        });
+
+        rightButton.on('pointerup', () => {
+          this.rightButtonPressed = false;
+          this.rabbit.moveStop();
         });
 
         jumpButton.on('pointerdown', () => {
-            if (this.rabbit.rabbit.body.touching.down) {
-                this.rabbit.moveUp(this.jump);
-            }
+          if (this.rabbit.rabbit.body.touching.down) {
+            this.rabbit.moveUp(this.jump);
+          }
         });
-
-        // 👇 Uncomment to stop movement when pointer is up
-        // leftButton.on('pointerup', () => {
-        //     this.rabbit.moveStop();
-        // });
-
-        // rightButton.on('pointerup', () => {
-        //     this.rabbit.moveStop();
-        // });
-    }
+      }
 
   update() {
 
-    if (this.cursors.left.isDown) {
+    if (this.cursors.left.isDown || this.leftButtonPressed) {
       this.rabbit.moveLeft();
-    } else if (this.cursors.right.isDown) {
+    } else if (this.cursors.right.isDown || this.rightButtonPressed) {
       this.rabbit.moveRight();
     }
 
