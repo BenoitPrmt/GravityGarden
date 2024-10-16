@@ -11,5 +11,7 @@ body {
 /* The canvas that was made with Phaser*/
 canvas {
     display: block;
-    margin: auto;
+    margin: 0;
+    width: 100%;
+    height: 100%;
 }
