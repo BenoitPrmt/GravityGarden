@@ -20,6 +20,9 @@ class Preloader extends Phaser.Scene
       this.load.audio('villager', 'src/assets/sounds/villager.m4a');
       this.load.audio('gameover', 'src/assets/sounds/gameover.mp3');
       this.load.image('ayu', 'src/assets/gameover.png');
+      this.load.image('leftButton', 'src/assets/left-button.png');
+      this.load.image('rightButton', 'src/assets/right-button.png');
+      this.load.image('jumpButton', 'src/assets/jump-icon.svg');
     }
 
     create ()
@@ -71,7 +74,7 @@ class GravityGarden extends Phaser.Scene {
         this.ground = createWorld(this);
         this.rabbit = new Rabbit(this);
         this.cursors = this.input.keyboard.createCursorKeys();
-        
+
         this.carrotInterval = setInterval(() => {
             carrotSpawning(this, this.rabbit, this.ground, this.eating, this.belch, this.golden_carrot, this.villager);
         }, 1000);
@@ -82,6 +85,34 @@ class GravityGarden extends Phaser.Scene {
         this.score_text = this.add.text(10, 110, this.rabbit.score, { fontFamily: 'Games', fontSize: '35px', fill: '#FFFFFF'});
         this.add.text(525,950,  'GravityGarden ', { fontFamily: 'Games', fontSize: '30px', fill: '#FFFFFF'});
         this.rabbit.create()
+
+        const leftButton = this.add.image(100, 900, 'leftButton').setInteractive().setScale(0.8);
+        const rightButton = this.add.image(700, 900, 'rightButton').setInteractive().setScale(0.8);
+        const jumpButton = this.add.image(400, 900, 'jumpButton').setInteractive().setScale(0.5);
+
+        // Decided to make the use the functions here because got an issue with update()
+        leftButton.on('pointerdown', () => {
+            this.rabbit.moveLeft();
+        });
+
+        rightButton.on('pointerdown', () => {
+            this.rabbit.moveRight();
+        });
+
+        jumpButton.on('pointerdown', () => {
+            if (this.rabbit.rabbit.body.touching.down) {
+                this.rabbit.moveUp(this.jump);
+            }
+        });
+
+        // 👇 Uncomment to stop movement when pointer is up
+        // leftButton.on('pointerup', () => {
+        //     this.rabbit.moveStop();
+        // });
+
+        // rightButton.on('pointerup', () => {
+        //     this.rabbit.moveStop();
+        // });
     }
 
   update() {
@@ -99,7 +130,7 @@ class GravityGarden extends Phaser.Scene {
         this.rabbit.moveStop();
     }
 
-    
+
     this.rabbit.updateEnergyText();
     this.score_text.setText(this.rabbit.score);
 
